@@ -5,5 +5,8 @@
 
 <mapper namespace="com.luwanqiang.crm.settings.dao.UserDao">
 
+    <select id="login"  resultType="com.luwanqiang.crm.settings.domain.User">
+        select * from tbl_user where loginAct=#{loginAct} and loginPwd=#{loginPwd}
+    </select>
 </mapper>
 

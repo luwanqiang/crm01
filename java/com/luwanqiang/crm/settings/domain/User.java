@@ -1,19 +1,44 @@
 package com.luwanqiang.crm.settings.domain;
 
+    /*
+      市面上的时间表示形式一般有两种：
+           1）年月日
+               yyyy-MM-dd (一共有10位字符串【定长】)
+
+          2）日期+时间  年月日 时分秒
+               yyyy-MM-dd HH:mm:ss (一共有19位字符串长度【定长】)
+    */
+
+    /*
+        关于登录：
+            验证账号和密码：
+            User user = 执行sql语句：select * from tbl_user where loginAct=? and loginPwd=?
+
+            user对象为null，说明证号密码错误
+
+            如果user对象不为null，说明账号密码正确
+            需要继续向下验证其他的字段信息
+
+             从user 中get到：
+             expireTime: 验证失效时间
+             lockState: 验证锁定状态 0：锁定（不可登录）   1：启用（允许登录）
+             allowIps: 验证浏览器端的ip地址是否有效
+    */
+
 public class User {
-    private String id;
-    private String loginAct;
-    private String name;
-    private String loginPwd;
-    private String email;
-    private String expireTime;
-    private String lockState;
-    private String deptno;
-    private String allowIps;
-    private String createTime;
-    private String createBy;
-    private String editTime;
-    private String editBy;
+    private String id; //编号: 住建
+    private String loginAct; //登录账号
+    private String name; // 用户真实姓名
+    private String loginPwd; //登录密码
+    private String email; //邮箱
+    private String expireTime; //失效时间 【19位定长】
+    private String lockState; //锁定状态 0：锁定   1：启用
+    private String deptno; //部门编号
+    private String allowIps; //允许访问的ip地址
+    private String createTime; //创建时间 【19位定长】
+    private String createBy; //创建人
+    private String editTime; //修改时间 【19位定长】
+    private String editBy; //修改人
 
     public String getId() {
         return id;
