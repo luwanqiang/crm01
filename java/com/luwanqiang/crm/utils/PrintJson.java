@@ -1,6 +1,7 @@
 package com.luwanqiang.crm.utils;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +23,12 @@ public class PrintJson {
 		try {
 			//{"success":true}
 			String json = om.writeValueAsString(map);
-			response.getWriter().print(json);
+			PrintWriter printWriter = response.getWriter();
+
+			printWriter.print(json);
+			printWriter.flush();
+			printWriter.close();
+
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -57,7 +63,13 @@ public class PrintJson {
 		ObjectMapper om = new ObjectMapper();
 		try {
 			String json = om.writeValueAsString(obj);
-			response.getWriter().print(json);
+
+			PrintWriter printWriter = response.getWriter();
+
+			printWriter.print(json);
+			printWriter.flush();
+			printWriter.close();
+
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {

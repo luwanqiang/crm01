@@ -7,6 +7,8 @@ import com.luwanqiang.crm.settings.service.UserService;
 import com.luwanqiang.crm.utils.DateTimeUtil;
 import com.luwanqiang.crm.utils.SqlSessionUtil;
 
+import java.util.List;
+
 public class UserServiceImpl implements UserService {
 
     UserDao userdao = SqlSessionUtil.getSqlSession().getMapper(UserDao.class);
@@ -41,5 +43,13 @@ public class UserServiceImpl implements UserService {
         }
 
         return loginuser;
+    }
+
+    @Override
+    public List<User> getUserList() {
+
+        List<User> userList = userdao.getUserList();
+        return userList;
+
     }
 }

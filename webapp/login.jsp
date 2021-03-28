@@ -14,6 +14,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	<script>
 		$(function(){
 
+			if(window.top!=window){
+				window.top.location=window.location;
+			}
+
+
 			//在页面加载完毕后将用户账号和密码文本框清空【页面刷新清空】
 			$("#loginAct").val("");
 			$("#loginPwd").val("");
@@ -77,7 +82,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 					if (date.success){
 
 						//验证成功，跳转到工作台初始页（欢迎页）
-						document.location.href="workbench/index.html";
+						document.location.href="workbench/index.jsp";
 
 					}else{
 
@@ -107,7 +112,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 			<div class="page-header">
 				<h1>登录</h1>
 			</div>
-			<form action="workbench/index.html" class="form-horizontal" role="form">
+			<form action="workbench/index.jsp" class="form-horizontal" role="form">
 				<div class="form-group form-group-lg">
 					<div style="width: 350px;">
 						<input class="form-control" type="text" placeholder="用户名" id="loginAct">

@@ -4,16 +4,7 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  
-  <servlet>
-    <servlet-name>UserController</servlet-name>
-    <servlet-class>com.luwanqiang.crm.settings.web.controller.UserController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserController</servlet-name>
-    <url-pattern>/settings/user/login.do</url-pattern>
-  </servlet-mapping>
-  
+
   <filter>
     <filter-name>EncodingFilter</filter-name>
     <filter-class>com.luwanqiang.crm.web.filter.EncodingFilter</filter-class>
@@ -22,6 +13,83 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.luwanqiang.crm.web.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  
+  <listener>
+    <listener-class>com.luwanqiang.crm.web.listener.SysInitListener</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>com.luwanqiang.crm.settings.web.controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/settings/user/login.do</url-pattern>
+  </servlet-mapping>
+
+  <!--市场活动控制器-->
+  <servlet>
+    <servlet-name>ActivityContorller</servlet-name>
+    <servlet-class>com.luwanqiang.crm.workbench.web.controller.ActivityController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActivityContorller</servlet-name>
+    <url-pattern>/workbench/activity/getUserList.do</url-pattern>
+    <url-pattern>/workbench/activity/saveActivity.do</url-pattern>
+    <url-pattern>/workbench/activity/pageList.do</url-pattern>
+    <url-pattern>/workbench/activity/delete.do</url-pattern>
+    <url-pattern>/workbench/activity/getUserListAndActivity.do</url-pattern>
+    <url-pattern>/workbench/activity/updateActivity.do</url-pattern>
+    <url-pattern>/workbench/activity/detail.do</url-pattern>
+    <url-pattern>/workbench/activity/activityRemarkList.do</url-pattern>
+    <url-pattern>/workbench/activity/deleteRemark.do</url-pattern>
+    <url-pattern>/workbench/activity/saveRemark.do</url-pattern>
+    <url-pattern>/workbench/activity/updateRemark.do</url-pattern>
+  </servlet-mapping>
+
+  <!--线索控制器-->
+  <servlet>
+    <servlet-name>ClueContorller</servlet-name>
+    <servlet-class>com.luwanqiang.crm.workbench.web.controller.ClueController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClueContorller</servlet-name>
+    <url-pattern>/workbench/clue/getUserList.do</url-pattern>
+    <url-pattern>/workbench/clue/save.do</url-pattern>
+    <url-pattern>/workbench/clue/detail.do</url-pattern>
+    <url-pattern>/workbench/clue/getActivityListByClueId.do</url-pattern>
+    <url-pattern>/workbench/clue/unbundle.do</url-pattern>
+    <url-pattern>/workbench/clue/getActivityListByName.do</url-pattern>
+    <url-pattern>/workbench/clue/bundle.do</url-pattern>
+    <url-pattern>/workbench/clue/searchActivityListByName.do</url-pattern>
+    <url-pattern>/workbench/clue/convert.do</url-pattern>
+  </servlet-mapping>
+
+  <!--交易控制器-->
+  <servlet>
+    <servlet-name>TranController</servlet-name>
+    <servlet-class>com.luwanqiang.crm.workbench.web.controller.TranController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TranController</servlet-name>
+    <url-pattern>/workbench/transaction/add.do</url-pattern>
+    <url-pattern>/workbench/transaction/getCustomerName.do</url-pattern>
+    <url-pattern>/workbench/transaction/save.do</url-pattern>
+    <url-pattern>/workbench/transaction/detail.do</url-pattern>
+    <url-pattern>/workbench/transaction/getTranHistoryListByTranId.do</url-pattern>
+    <url-pattern>/workbench/transaction/changeStage.do</url-pattern>
+    <url-pattern>/workbench/transaction/getChart.do</url-pattern>
+  </servlet-mapping>
   
 </web-app>
 

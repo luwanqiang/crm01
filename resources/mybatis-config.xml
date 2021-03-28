@@ -12,9 +12,9 @@
     </settings>
 
     <!--分页插件-->
-    <!--<plugins>
-        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
-    </plugins>-->
+    <plugins>
+            <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
 
     <environments default="development">
         <environment id="development">
@@ -29,6 +29,8 @@
     </environments>
 
     <mappers>
-        <mapper resource="com\luwanqiang\crm\settings\dao\UserDao.xml"/>
+    <!--<mapper resource="com\luwanqiang\crm\settings\dao\UserDao.xml"/>-->
+        <package name="com.luwanqiang.crm.workbench.dao"/>
+        <package name="com.luwanqiang.crm.settings.dao"/>
     </mappers>
 </configuration>
